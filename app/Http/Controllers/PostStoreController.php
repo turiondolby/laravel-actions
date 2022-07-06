@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class PostStoreController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, CreatePost $createPost)
     {
         $data = $this->validate($request, [
             'body' => 'required'
         ]);
 
-        CreatePost::run($request->user(), $data);
+        $createPost->run($request->user(), $data);
 
         return back();
     }
