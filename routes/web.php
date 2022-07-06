@@ -1,6 +1,7 @@
 <?php
 
 use App\Actions\CreatePost;
+use App\Actions\CreateOrder;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostStoreController;
 
@@ -20,6 +21,8 @@ Route::get('/', function () {
 });
 
 Route::post('posts', CreatePost::class)->name('posts.store');
+
+Route::post('users/{user}/orders', CreateOrder::class)->name('orders.store');
 
 Route::get('dashboard', function () {
     return view('dashboard');
