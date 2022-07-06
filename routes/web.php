@@ -1,5 +1,6 @@
 <?php
 
+use App\Actions\CreatePost;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostStoreController;
 
@@ -18,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('posts', PostStoreController::class)->name('posts.store');
+Route::post('posts', CreatePost::class)->name('posts.store');
 
 Route::get('dashboard', function () {
     return view('dashboard');
