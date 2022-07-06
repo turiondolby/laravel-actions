@@ -23,4 +23,18 @@ class CreatePost extends Action
 
         return back();
     }
+
+    public function rules(): array
+    {
+        return [
+            'body' => 'required'
+        ];
+    }
+
+    public function getValidationMessages(): array
+    {
+        return [
+            'body.required' => 'We need a body'
+        ];
+    }
 }
