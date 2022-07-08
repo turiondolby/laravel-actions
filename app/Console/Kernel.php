@@ -2,11 +2,16 @@
 
 namespace App\Console;
 
+use App\Actions\SendOrderEmail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+    protected $commands = [
+        SendOrderEmail::class
+    ];
+
     /**
      * Define the application's command schedule.
      *
