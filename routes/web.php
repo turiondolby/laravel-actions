@@ -2,6 +2,7 @@
 
 use App\Actions\CreatePost;
 use App\Actions\CreateOrder;
+use App\Actions\DoSomething;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostStoreController;
 
@@ -27,5 +28,9 @@ Route::post('users/{user}/orders', CreateOrder::class)->name('orders.store');
 Route::get('dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('inside', function () {
+    var_dump(DoSomething::run());
+});
 
 require __DIR__.'/auth.php';
